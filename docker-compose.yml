@@ -38,6 +38,7 @@ services:
       args:
         CLI_IMAGE: ${DOCKERHUB_NAMESPACE:-govcms}/${GOVCMS_CLI_IMAGE_NAME:-govcms}:${GOVCMS_RELEASE_TAG:-latest}
         LAGOON_IMAGE_VERSION: ${LAGOON_IMAGE_VERSION:-latest}
+        SIMPLESAMLPHP_CONFIG_DIR: ${SIMPLESAMLPHP_CONFIG_DIR:-}
     image: ${DOCKERHUB_NAMESPACE:-govcms}/nginx-drupal:${GOVCMS_RELEASE_TAG:-latest}
     environment:
       RESTY_RESOLVER: 8.8.8.8
@@ -58,6 +59,7 @@ services:
         CLI_IMAGE: ${DOCKERHUB_NAMESPACE:-govcms}/${GOVCMS_CLI_IMAGE_NAME:-govcms}:${GOVCMS_RELEASE_TAG:-latest}
         LAGOON_IMAGE_VERSION: ${LAGOON_IMAGE_VERSION:-latest}
         LAGOON_ROUTE: ${LOCALDEV_URL:-http://govcmslagoon.docker.amazee.io}
+        SIMPLESAMLPHP_CONFIG_DIR: ${SIMPLESAMLPHP_CONFIG_DIR:-}
     image: ${DOCKERHUB_NAMESPACE:-govcms}/php:${GOVCMS_RELEASE_TAG:-latest}
     << : *default-volumes
 
