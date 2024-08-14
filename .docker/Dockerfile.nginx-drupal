@@ -19,14 +19,7 @@ COPY .docker/images/nginx/fastcgi /etc/nginx/fastcgi
 
 COPY .docker/images/nginx/conf/ /etc/nginx/conf.d/
 COPY .docker/images/nginx/govcms-redirects-map.conf /etc/nginx/govcms-redirects-map.conf
-COPY .docker/images/nginx/location_prepend_simplesamlphp.conf /app/location_prepend_simplesamlphp.conf
-
-# Copy the SimpleSAMLphp nginx config.
-RUN if [ -n "$SIMPLESAMLPHP_CONFIG_DIR" ]; then \
-    cp /app/location_prepend_simplesamlphp.conf /etc/nginx/conf.d/drupal/location_prepend_simplesamlphp.conf; \
-fi
-# Delete the temporary config file.
-RUN rm -f /app/location_prepend_simplesamlphp.conf
+COPY .docker/images/nginx/location_prepend_simplesamlphp.conf /etc/nginx/conf.d/drupal/location_prepend_simplesamlphp.conf
 
 RUN fix-permissions /etc/nginx
 
