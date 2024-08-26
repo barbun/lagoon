@@ -25,7 +25,7 @@ COPY scripts/composer/ScriptHandler.php /app/scripts/composer/ScriptHandler.php
 ENV COMPOSER_MEMORY_LIMIT=-1
 
 RUN --mount=type=secret,id=composer-auth,dst=/app/auth.json /usr/local/bin/composer validate
-RUN --mount=type=secret,id=composer-auth,dst=/app/auth.json /usr/local/bin/composer update -d /app
+RUN --mount=type=secret,id=composer-auth,dst=/app/auth.json /usr/local/bin/composer update --no-dev -d /app
 RUN --mount=type=secret,id=composer-auth,dst=/app/auth.json /usr/local/bin/composer clearcache
 
 # Add bash aliases to assist with full path executables.
