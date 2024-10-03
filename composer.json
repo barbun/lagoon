@@ -41,6 +41,7 @@
             "drupal/core-composer-scaffold": true,
             "oomphinc/composer-installers-extender": true,
             "php-http/discovery": true,
+            "tbachert/spi": true,
             "simplesamlphp/composer-module-installer": true
         }
     },
