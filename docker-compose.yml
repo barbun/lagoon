@@ -40,6 +40,7 @@ services:
         LAGOON_IMAGE_VERSION: ${LAGOON_IMAGE_VERSION:-latest}
     image: ${DOCKERHUB_NAMESPACE:-govcms}/nginx-drupal:${GOVCMS_RELEASE_TAG:-latest}
     environment:
+      RESTY_RESOLVER: 8.8.8.8
       LAGOON_ROUTE: ${LOCALDEV_URL:-http://govcmslagoon.docker.amazee.io}
       LAGOON_LOCALDEV_URL: ${LOCALDEV_URL_NGINX:-http://govcms-lagoon-nginx.docker.amazee.io}
       X_FRAME_OPTIONS: ${X_FRAME_OPTIONS:-SAMEORIGIN}

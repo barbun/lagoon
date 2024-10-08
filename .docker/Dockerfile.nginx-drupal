@@ -22,5 +22,13 @@ COPY .docker/sanitize.sh /app/sanitize.sh
 RUN /app/sanitize.sh \
   && rm -rf /app/sanitize.sh
 
+# JS SBOM
+COPY .docker/images/nginx/helpers/lualib/resty/ /usr/local/openresty/lualib/resty/
+RUN echo 'env JS_SBOM_ENABLED;' >> /etc/nginx/nginx.conf
+RUN echo 'env JS_SBOM_API_ENDPOINT;' >> /etc/nginx/nginx.conf
+RUN echo 'env JS_SBOM_FILE_LOCATION;' >> /etc/nginx/nginx.conf
+RUN echo 'env JS_SBOM_FIND;' >> /etc/nginx/nginx.conf
+RUN echo 'env JS_SBOM_REPLACE;' >> /etc/nginx/nginx.conf
+
 # Define where the Drupal Root is located
 ENV WEBROOT=web
