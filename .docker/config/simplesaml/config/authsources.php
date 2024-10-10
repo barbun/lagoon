@@ -68,8 +68,8 @@ $config = [
          * The certificate is used to verify the signature of messages received from the SP (if redirect.validate is set to TRUE ), 
          * and to encrypting assertions (if assertion.encryption is set to TRUE and sharedkey is unset.)
          */
-        'certificate' => (getenv('SIMPLESAMLPHP_CERT_DIR') ?: '/app/config/saml/simplesaml/cert') . '/saml.crt',
-        'privatekey' => (getenv('SIMPLESAMLPHP_CERT_DIR') ?: '/app/config/saml/simplesaml/cert') . '/saml.pem',
+        'certificate' => (getenv('SIMPLESAMLPHP_CERT_DIR') ?: '/app/web/sites/default/files/private') . '/saml.crt',
+        'privatekey' => (getenv('SIMPLESAMLPHP_CERT_DIR') ?: '/app/web/sites/default/files/private') . '/saml.pem',
 
         /*
          * Whether logout requests and logout responses sent to this SP should be signed. The default is FALSE .

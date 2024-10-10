@@ -89,7 +89,7 @@ $config = [
      * directory. Note that locations with no prefix included will be treated
      * as file locations.
      */
-    'certdir' => 'cert/',
+    'certdir' => (getenv('SIMPLESAMLPHP_CERT_DIR') ?: '/app/web/sites/default/files/private') . '/',
 
     /* To load a certificate or key from the database, it should be specified
      * as 'pdo://<id>' where <id> is the identifier in the database table that
