@@ -41,7 +41,7 @@ COPY .docker/images/govcms/govcms.site.yml /app/drush/sites/
 COPY .docker/images/govcms/mariadb-client.cnf /etc/my.cnf.d
 
 # Copy SimpleSAMLphp config.
-COPY ./docker/config/simplesaml/ /app/config/saml/
+COPY .docker/config/simplesaml/ /app/simplesaml/
 
 RUN mkdir -p /app/web/sites/default/files/private \
     && fix-permissions /home/.drush \

@@ -1068,7 +1068,7 @@ $config = [
      * This option allows you to specify a directory for your metadata outside of the standard metadata directory
      * included in the standard distribution of the software.
      */
-    'metadatadir' => getenv('SIMPLESAMLPHP_METADATA_DIR') ?: '/app/config/saml/simplesaml/metadata',
+    'metadatadir' => getenv('SIMPLESAMLPHP_METADATA_DIR') ?: '/app/simplesaml/metadata',
 
     /*
      * This option configures the metadata sources. The metadata sources is given as an array with

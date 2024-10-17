@@ -1,6 +1,8 @@
 <?php
 $env_type = getenv('LAGOON_ENVIRONMENT_TYPE') ?: 'development';
 $sp_name = getenv('LAGOON_PROJECT') . '-' . $env_type;
+$cert_dir = getenv('SIMPLESAMLPHP_CERT_DIR') ?: '/app/web/sites/default/files/private';
+
 $config = [
     /*
      * When multiple authentication sources are defined, you can specify one to use by default
@@ -68,8 +70,8 @@ $config = [
          * The certificate is used to verify the signature of messages received from the SP (if redirect.validate is set to TRUE ), 
          * and to encrypting assertions (if assertion.encryption is set to TRUE and sharedkey is unset.)
          */
-        'certificate' => (getenv('SIMPLESAMLPHP_CERT_DIR') ?: '/app/web/sites/default/files/private') . '/saml.crt',
-        'privatekey' => (getenv('SIMPLESAMLPHP_CERT_DIR') ?: '/app/web/sites/default/files/private') . '/saml.pem',
+        'certificate' => $cert_dir . '/saml.crt',
+        'privatekey' => $cert_dir . '/saml.pem',
 
         /*
          * Whether logout requests and logout responses sent to this SP should be signed. The default is FALSE .
