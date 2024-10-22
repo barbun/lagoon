@@ -1,5 +1,9 @@
 name: jquery_ui_resizable
 type: module
 core_version_requirement: ^9 || ^10
+<<<<<<< HEAD
 lifecycle: obsolete
 lifecycle_link: 'https://github.com/GovCMS/GovCMS'
+=======
+lifecycle: obsolete
+>>>>>>> ade75e0 ([GOVCMSD10-1125] Add jquery_ui_resizable as a stub module (#432))
