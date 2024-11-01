@@ -2,6 +2,7 @@
 $env_type = getenv('LAGOON_ENVIRONMENT_TYPE') ?: 'development';
 $sp_name = getenv('LAGOON_PROJECT') . '-' . $env_type;
 $cert_dir = getenv('SIMPLESAMLPHP_CERT_DIR') ?: '/app/web/sites/default/files/private';
+$idp = getenv('SIMPLESAMLPHP_IDP_ENTITYID') ?: getenv('SIMPLESAMLPHP_IDP_BASE_URL');
 
 $config = [
     /*
@@ -34,7 +35,7 @@ $config = [
 
         // The entity ID of the IdP this SP should contact.
         // Can be NULL/unset, in which case the user will be shown a list of available IdPs.
-        'idp' => getenv('SIMPLESAMLPHP_IDP_BASE_URL'),
+        'idp' => $idp,
 
         // The format of the NameID we request from the IdP in the AuthnRequest:
         // an array in the form of [ 'Format' => the format, 'AllowCreate' => true or false ]

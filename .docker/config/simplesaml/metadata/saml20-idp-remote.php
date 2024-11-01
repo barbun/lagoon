@@ -1,10 +1,11 @@
 <?php
 
 $idpBaseURL = getenv('SIMPLESAMLPHP_IDP_BASE_URL');
+$idpEntityId = getenv('SIMPLESAMLPHP_IDP_ENTITYID') ?: $idpBaseURL;
 $fallbackBinding = getenv('SIMPLESAMLPHP_IDP_DEFAULT_BINDING');
 
-$metadata[$idpBaseURL] = [
-  'entityid' => $idpBaseURL,
+$metadata[$idpEntityId] = [
+  'entityid' => $idpEntityId,
   'contacts' => [],
   'metadata-set' => 'saml20-idp-remote',
   'sign.authnrequest' => getenv('SIMPLESAMLPHP_IDP_SIGN_AUTH') ?: FALSE,
