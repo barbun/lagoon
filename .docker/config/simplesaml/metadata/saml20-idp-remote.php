@@ -11,18 +11,14 @@ $bindings = [
   'SIMPLESAMLPHP_IDP_HTTP_ARTIFACT' => $fallbackBinding,
 ];
 
-$bindings = array_map(function($fallback, $binding) use ($idpBaseURL) {
+foreach ($bindings as $binding => $fallback) {
   $envVar = getenv($binding);
-  
   if (empty($envVar)) {
-    // Return the fallback binding if the environment variable is not set.
-    return $idpBaseURL . $fallback;
+    $bindings[$binding] = str_starts_with($fallback, 'http') ? $fallback : $idpBaseURL . $fallback;
+    continue;
   }
-
-  // If the environment variable is a full URL, use it as is. Otherwise,
-  // prepend the base URL.
-  return str_starts_with($envVar, 'http') ? $envVar : $idpBaseURL . $envVar;
-}, $bindings, array_keys($bindings));
+  $bindings[$binding] = str_starts_with($envVar, 'http') ? $envVar : $idpBaseURL . $envVar;
+}
 
 $metadata[$idpEntityId] = [
   'entityid' => $idpEntityId,
