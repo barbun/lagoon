@@ -74,6 +74,7 @@ $metadata[$idpEntityId] = [
     'urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified',
     'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
   ],
+  'signature.algorithm' => getenv('SIMPLESAMLPHP_IDP_SIGNATURE_ALGORITHM') ?: 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256',
   'keys' => [
     [
       'encryption' => getenv('SIMPLESAMLPHP_IDP_CERT_ENCRYPT') ?: FALSE,
