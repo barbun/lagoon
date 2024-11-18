@@ -77,8 +77,8 @@ $metadata[$idpEntityId] = [
   'signature.algorithm' => getenv('SIMPLESAMLPHP_IDP_SIGNATURE_ALGORITHM') ?: 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256',
   'keys' => [
     [
-      'encryption' => getenv('SIMPLESAMLPHP_IDP_CERT_ENCRYPT') ?: FALSE,
-      'signing' => getenv('SIMPLESAMLPHP_IDP_CERT_SIGNING') ?: TRUE,
+      'encryption' => !empty(getenv('SIMPLESAMLPHP_IDP_CERT_ENCRYPT')),
+      'signing' => empty(getenv('SIMPLESAMLPHP_IDP_CERT_SIGNING')),
       'type' => getenv('SIMPLESAMLPHP_IDP_CERT_TYPE') ?: 'X509Certificate',
       'X509Certificate' => getenv('SIMPLESAMLPHP_IDP_CERT'),
     ],
