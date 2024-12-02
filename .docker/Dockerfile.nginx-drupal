@@ -13,6 +13,7 @@ COPY .docker/images/nginx/fastcgi /etc/nginx/fastcgi
 
 COPY .docker/images/nginx/conf/ /etc/nginx/conf.d/
 COPY .docker/images/nginx/govcms-redirects-map.conf /etc/nginx/govcms-redirects-map.conf
+COPY .docker/images/nginx/location_prepend_simplesamlphp.conf /etc/nginx/conf.d/drupal/location_prepend_simplesamlphp.conf
 
 RUN fix-permissions /etc/nginx
 
